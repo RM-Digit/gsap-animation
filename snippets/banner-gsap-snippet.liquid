@@ -1,0 +1,41 @@
+
+ 
+<div class="bg_gsap">
+  <canvas id="hero-lightpass"></canvas>
+  {% assign block = section.blocks[0] %}
+  <div class= "first-container">
+    <div class = "first-animation-container {% unless block.settings.description_text2 == blank %}desc-addmore{% endunless %}">
+      <div class="first-title">
+        {{ block.settings.title_text }}
+      </div>
+      {% unless block.settings.description_text == blank %}
+        <div class="first-description {% unless block.settings.description_text2 == blank %}flex-row line-height-45{% endunless %}">
+            {{ block.settings.description_text }}
+          {% unless block.settings.description_text2 == blank %}
+            {{ block.settings.description_text2 }}
+          {% endunless %}
+        </div>
+      {% endunless %}
+    </div>
+   
+  </div>
+  <div class="container-hero">
+    {% if section.blocks.size > 0 %}
+      {%- for block in section.blocks -%}
+        {% unless forloop.first == true %}
+          <div class="title_gsap">
+            <div class = "animation-container {% unless block.settings.description_text2 == blank %}desc-addmore{% endunless %}">
+            <div class="title">{{ block.settings.title_text }}</div>
+            <div class = "description_gsap {% unless block.settings.description_text2 == blank %}flex-row line-height-45{% endunless %}">
+                {{ block.settings.description_text }}
+              {% unless block.settings.description_text2 == blank %}
+                {{ block.settings.description_text2 }}
+              {% endunless %}
+              </div>
+            </div>
+          </div>
+        {% endunless %}
+      {%- endfor -%}
+    {% endif %}
+  </div>
+</div>
